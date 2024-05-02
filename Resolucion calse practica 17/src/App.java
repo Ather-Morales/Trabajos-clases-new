@@ -55,12 +55,22 @@ public class App {
 
         int[] arreglo = new int[tamv];
 
-        for (int i = 0; i < arreglo.length; i++) {
-            System.out.println("ingrese el valor [" + (1+i) + "]");
-            arreglo[i] = leer.nextInt();
-            
-        
-        }
+        boolean prueba= true;
+
+        do {
+            try {
+                for (int i = 0; i < arreglo.length; i++) {
+                    System.out.println("ingrese el valor [" + (1+i) + "]");
+                    arreglo[i] = leer.nextInt();
+                    prueba=false;
+                
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+                System.out.println("No escribio un numero, porfavor, intente de nuevo.");
+                leer.nextLine();
+            }
+        } while (prueba);
        
         return arreglo;
     }
